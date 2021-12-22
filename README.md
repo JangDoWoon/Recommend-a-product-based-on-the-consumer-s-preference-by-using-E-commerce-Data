@@ -60,5 +60,5 @@
 
 * 목적: 유저별 유형과 방문 기록을 기반하여 군집화를 통한 상품 추천
 * 단계
-** weekday, day/night, event_type_cat 을 통해 유저별 개인 속성 군집을 생성 
+  * weekday, day/night, event_type_cat 을 통해 유저별 개인 속성 군집을 생성 
 
