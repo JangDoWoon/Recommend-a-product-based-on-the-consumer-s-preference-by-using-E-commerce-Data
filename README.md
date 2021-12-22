@@ -86,10 +86,10 @@
   * 제안 방법의 SSE: 0.00144 x 1e8
 * 군집 별 케이스 분석
   * Cluster 2
-   * Brand: Acer(0), Apple(20), Asus(30)
-   * Main category: Computers
-   * Sub_category: Notebook
-   * 유저 성향: 금/낮/view
+    * Brand: Acer(0), Apple(20), Asus(30)
+    * Main category: Computers
+    * Sub_category: Notebook
+    * 유저 성향: 금/낮/view
  
 ![image](https://user-images.githubusercontent.com/67357059/147016947-09471bd0-eee5-4a2f-8307-c95477af7dbe.png)
 
