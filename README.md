@@ -61,4 +61,51 @@
 * 목적: 유저별 유형과 방문 기록을 기반하여 군집화를 통한 상품 추천
 * 단계
   * weekday, day/night, event_type_cat 을 통해 유저별 개인 속성 군집을 생성 
+  * 1번 과정을 통해 생성된 유저 별 유형 군집과 나머지 속성을 이용하여 2차 군집을 진행
+  * 최종 군집을 통해 속성 별 상품 추천
+* 첫번째 군집화를 통해 고객들의 유형 정보를 생성 (요일, 밤낮, 구매 유무를 이용해 유저별 특성 클러스터를 생성)
+* TSNE 방법을 이용해 2차원으로 축호한 뒤 15개로 군집화 진행
+ * Elbow Method를 사용해 SSE 값이 일정하게 유지되는 지점(K=15)를 군집 수로 선정
+ * 군집화 시각화를 통해 벡터 공간 상 유저별 유형 분리 확인 (실루엣:0.753)
+
+![image](https://user-images.githubusercontent.com/67357059/147016048-f6ba950f-ffda-4701-9a44-e77f34d744ba.png)
+
+* 두번째 군집화를 통해 고객들에게 제품을 추천
+ * 고객 유형 군집, 가격, 제품 종류, 브랜드, 제품의 종류, 브랭드 인기, 브랜드 평판을 이용해 새로운 군집 생성
+* TSNE방법을 이용해 2차원으로 축소한 뒤 Elbow Method를 사용해 SSE값이 일정하게 유지되는 지(K=60)개로 군집화 진행
+
+![image](https://user-images.githubusercontent.com/67357059/147016481-3969a521-0dd9-44f1-8a9e-455aac6c2f2f.png)
+
+### Clustering 평가
+* 내부지표
+ * 실루엣 점수: 각 군집 간의 거리가 얼마나 효율적으로 분리되었는지 확인하는 척도
+ * 0에서 1사이의 숫자로 표현되며 값이 1에 가까울 수록 군집이 효과적으로 분리됨을 의미
+ * 제안 방법의 평균 실루엣 점수:0.5889
+* 외부지표
+ * SSE: 오차제곱합을 의미하며, 최적의 군집 수를 선택하는 지표
+ * 제안 방법의 SSE: 0.00144 x 1e8
+* 군집 별 케이스 분석
+ * Cluster 2
+  * Brand: Acer(0), Apple(20), Asus(30)
+  * Main category: Computers
+  * Sub_category: Notebook
+  * 유저 성향: 금/낮/view
+ 
+![image](https://user-images.githubusercontent.com/67357059/147016947-09471bd0-eee5-4a2f-8307-c95477af7dbe.png)
+
+* 이외의 케이스 분석은 PPT참조바람
+
+## 연관 분석
+* 연관 분석을 통해 어떤 제품을 구매하는 구매자가 동시에 고려할 것으로 예측되는 제품을 찾아 광고 추천 시스템에 사용하고자 함
+ * 연관 분석을 위해 각 고객에 대해 시간에 따라 구매하는 제품의 종류에 대한 trasaction들을 추출함
+
+![image](https://user-images.githubusercontent.com/67357059/147017076-7f748e19-59e8-409f-8df3-09ad881bf0aa.png)
+
+ * 최소지지도를 낮춰가며 흥미로운 결과를 찾아봄 (최종적으로 최소지지도는 0.1로 설정함)
+
+![image](https://user-images.githubusercontent.com/67357059/147017147-d27640c3-7238-45a3-94bb-e0cc20ae0c44.png)
+
+ * Lift=1로 설정한 후 연관 분석을 진행함
+
+![image](https://user-images.githubusercontent.com/67357059/147017222-b50f0eed-9d7f-4561-ad3d-d733eae876ae.png)
 
