@@ -11,11 +11,49 @@
 
 ![image](https://user-images.githubusercontent.com/67357059/147014505-262d2623-b01e-4858-b3ee-3a0fb84082ac.png)
 ## EDA
-* 유저 별 방문 패턴
-월 초, 월 말 보다는 중순에 방문자가 증가
+* 월 초, 월 말 보다는 중순에 방문자가 증가
 ![image](https://user-images.githubusercontent.com/67357059/147014576-fc18ddb9-a9ce-4979-a972-e02b8c70a04b.png)
 
-금요일과 주말에 방문자가 증가
+* 금요일과 주말에 방문자가 증가
 
 ![image](https://user-images.githubusercontent.com/67357059/147014657-ac444ac9-5818-44f5-995c-2c924b34fce7.png)
 
+* Smartphone이 가장 높은 비율을 가짐
+
+![image](https://user-images.githubusercontent.com/67357059/147014761-da8c064d-eacd-4c1c-9bdb-a4878bea207d.png)
+
+## 데이터 전처리
+
+* Event 횟수가 100번 이상인 122720명의 유저 중 10%에 해당하는 명의 유저들 샘플링
+( 그 결과 65,701,979의 데이터 중 2,313,346개의 데이터 샘플링 3.52%)
+* 제품의 종류와 브랜드 중 Event 횟수가 최대 Event 횟수의 1%인 종류와 브랜드 제거 (그 결과 2,313,345개의 데이터 샘플 중 1,061,845개의 데이터가 남음)
+* 결측치의 경우 이상치 처리 부분에서 모두 제거됨.
+* 브랜드 가치에 따라 사용자가 구매하고자 하는 상품이 달라져 Brand 별 가치 평가 데이터 추가함
+
+![image](https://user-images.githubusercontent.com/67357059/147015070-cfdc7b7d-5149-4514-8e91-77cb09a5536a.png)
+
+* Category Code 속성을 사용하기 위해 대분류, 중분류로 분할
+
+![image](https://user-images.githubusercontent.com/67357059/147015116-5179e8dd-f40c-4bcb-a91a-aeb5e54ee5bc.png)
+
+* EDA를 기반으로 낮과 밤 방문 여부, 요일별 방문 속성 추가, 구매 유무 정보 추가
+
+![image](https://user-images.githubusercontent.com/67357059/147015210-32f932f6-d7f7-482d-995e-c00db4b824e5.png)
+
+* 불필요한 속성 제거 (유저 아이디, 방문 시간 등)
+
+![image](https://user-images.githubusercontent.com/67357059/147015254-3a7b3514-048e-41c4-98f1-f3cb9f38992c.png)
+
+* 데이터 범주화를 위한 타입 변환(Label Encoding)
+
+![image](https://user-images.githubusercontent.com/67357059/147015328-0738b369-c3d9-496b-963a-cbd947b560fd.png)
+
+*Prodcuct_id로부터 제품 추출
+
+![image](https://user-images.githubusercontent.com/67357059/147015356-78616b98-fe34-412f-ac6f-d52f5989a1a5.png)
+
+* 제품의 종류와 브랜드 event 수를 이용한 인기 척도 추출
+
+![image](https://user-images.githubusercontent.com/67357059/147015423-62fd917f-bc95-4978-9af1-5d73123b3313.png)
+
+## Clustering
