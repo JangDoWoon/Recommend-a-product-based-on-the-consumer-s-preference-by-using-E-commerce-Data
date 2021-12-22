@@ -78,18 +78,18 @@
 
 ### Clustering 평가
 * 내부지표
- * 실루엣 점수: 각 군집 간의 거리가 얼마나 효율적으로 분리되었는지 확인하는 척도
- * 0에서 1사이의 숫자로 표현되며 값이 1에 가까울 수록 군집이 효과적으로 분리됨을 의미
- * 제안 방법의 평균 실루엣 점수:0.5889
+  * 실루엣 점수: 각 군집 간의 거리가 얼마나 효율적으로 분리되었는지 확인하는 척도
+  * 0에서 1사이의 숫자로 표현되며 값이 1에 가까울 수록 군집이 효과적으로 분리됨을 의미
+  * 제안 방법의 평균 실루엣 점수:0.5889
 * 외부지표
- * SSE: 오차제곱합을 의미하며, 최적의 군집 수를 선택하는 지표
- * 제안 방법의 SSE: 0.00144 x 1e8
+  * SSE: 오차제곱합을 의미하며, 최적의 군집 수를 선택하는 지표
+  * 제안 방법의 SSE: 0.00144 x 1e8
 * 군집 별 케이스 분석
- * Cluster 2
-  * Brand: Acer(0), Apple(20), Asus(30)
-  * Main category: Computers
-  * Sub_category: Notebook
-  * 유저 성향: 금/낮/view
+  * Cluster 2
+   * Brand: Acer(0), Apple(20), Asus(30)
+   * Main category: Computers
+   * Sub_category: Notebook
+   * 유저 성향: 금/낮/view
  
 ![image](https://user-images.githubusercontent.com/67357059/147016947-09471bd0-eee5-4a2f-8307-c95477af7dbe.png)
 
